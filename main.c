@@ -517,16 +517,21 @@ int data_gen(char* data_sens)
 
 static int _cmd_loramac_data_transmission(int argc, char **argv)
 {
+		 if (argc < 2) {
+			printf("start function")
+		}
         uint8_t cnf = LORAMAC_DEFAULT_TX_MODE;  /* Default: confirmable */
         uint8_t port = LORAMAC_DEFAULT_TX_PORT; /* Default: 2 */
 
         semtech_loramac_set_tx_mode(&loramac, cnf);
         semtech_loramac_set_tx_port(&loramac, port);
 
-		char data[128];
+		char data_sens[128];
 		//argv[2] is the msg  payload
-		argv[2]=data_gen(data_gen)
-        switch (semtech_loramac_send(&loramac, (uint8_t *)argv[2], strlen(argv[2]))) {
+		data_gen(data);
+		argv[2]=data_sens;
+		
+        switch (semtech_loramac_send( &loramac, (uint8_t *)argv[2], strlen(argv[2]) )) {
             case SEMTECH_LORAMAC_NOT_JOINED:
                 puts("Cannot send: not joined");
                 return 1;
@@ -570,9 +575,7 @@ static int _cmd_loramac_data_transmission(int argc, char **argv)
         }
 
         if (loramac.link_chk.available) {
-            printf("Link check information:\n"
-                   "  - Demodulation margin: %d\n"
-                   "  - Number of gateways: %d\n",
+            printf("Link check information:\n - Demodulation margin: %d\n  - Number of gateways: %d\n",
                    loramac.link_chk.demod_margin,
                    loramac.link_chk.nb_gateways);
         }
