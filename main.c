@@ -26,6 +26,7 @@
 
 #include "net/loramac.h"
 #include "semtech_loramac.h"
+#include <time.h>
 
 semtech_loramac_t loramac;
 
