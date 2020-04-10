@@ -511,9 +511,11 @@ int data_gen(char* data_sens)
 	data[4]= rand() % 51;
 
 	sprintf(data_sens , "%d,%d,%d,%d,%d", data[0],data[1],data[2],data[3],data[4]);
+	
+	return 0;
 }
 
-staitc int _cmd_loramac_data_transmission(int argc, char **argv)
+static int _cmd_loramac_data_transmission(int argc, char **argv)
 {
         uint8_t cnf = LORAMAC_DEFAULT_TX_MODE;  /* Default: confirmable */
         uint8_t port = LORAMAC_DEFAULT_TX_PORT; /* Default: 2 */
