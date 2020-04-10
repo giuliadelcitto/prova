@@ -585,7 +585,7 @@ static int _cmd_loramac_data_transmission(int argc, char **argv)
 
 static const shell_command_t shell_commands[] = {
     { "loramac", "control the loramac stack", _cmd_loramac },
-    { "loramac", "control the loramac stack", _cmd_loramac_data_transmission },
+    { "loramac_data", "control the loramac stack", _cmd_loramac_data_transmission },
     { NULL, NULL, NULL }
 };
 
