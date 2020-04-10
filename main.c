@@ -503,6 +503,7 @@ static int _cmd_loramac(int argc, char **argv)
 
 int data_gen(char* data_sens)
 {
+	srand(time(0));
 	static int data[5];
 	data[0]= (rand() % 51) - (rand() % 51);
 	data[1]= rand() % 101;
