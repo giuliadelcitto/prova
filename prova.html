@@ -1,0 +1,30 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Prova sensori</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+</head>
+
+<body>
+	<h1> Accelerometer </h1>
+	<p>Data: </p>
+	<div id='status'> No data from sensor </div>
+	<script>
+		let sensor = new Accelerometer({frequency: 5});
+		sensor.start();
+
+		sensor.onreading = () => {
+			document.getElementById('status').innerHTML = "Acceleration: " + sensor.x +"	" + sensor.y + "	" + sensor.z;
+		};
+
+		sensor.onerror = event => {
+			document.getElementById('status').innerHTML = "Error Name" + event.error.name + "Error Message " + event.error.message;
+		};
+	</script>
+</body>
+</html>
