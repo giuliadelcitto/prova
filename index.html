@@ -2,11 +2,12 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-
-  <title>Prova sensori</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+	<script src="mqtt.js" type="text/javascript"></script>
+	<title>Prova sensori</title>
+	<meta charset="utf-8">
+	<meta name="description" content="The HTML5 Herald">
+	<meta name="author" content="SitePoint">
 
 </head>
 
@@ -15,7 +16,7 @@
 	<p>Data: </p>
 	<div id='status'> No data from sensor </div>
 	<script>
-		let sensor = new Accelerometer({frequency: 5});
+		let sensor = new Accelerometer({frequency: 1});
 		sensor.start();
 
 		sensor.onreading = () => {
@@ -26,5 +27,10 @@
 			document.getElementById('status').innerHTML = "Error Name" + event.error.name + "Error Message " + event.error.message;
 		};
 	</script>
+	<p>Stato connesione MQTT </p>
+	<div id ="con_status"> Non connesso </div>
+	<div id ="sub_status"> No subsciption </div>
+	<div id ="msg_status"> No msg send </div>
+	
 </body>
 </html>
