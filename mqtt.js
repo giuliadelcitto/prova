@@ -1,46 +1,43 @@
-/*
-	* MQTT-WebClient example for Web-IO 4.0
-*/
-var hostname = "demo.thingsboard.io";
-var port = 1883;
-var clientId = "N2AxGgvu8vkscRonykTT";
-var username = "";
-var password = "";
-var topic = "v1/devices/me/telemetry";
+function MQTT(){
+	var host = "demo.thingsboard.io"
+	var token = "N2AxGgvu8vkscRonykTT"
+	var client_id = "da0dfbc0-9142-11ea-a3df-b1bca87d6c8b"
+	// Create a client instance
+	var mqtt    = require('mqtt');
+	var count =0;
+	var client  = mqtt.connect(host ,{clientId: client_id});
+	console.log("connected flag  " + client.connected);
 
-mqttClient = new Paho.MQTT.Client(hostname, port, clientId);
-mqttClient.onConnectionLost = ConnectionLost;
+	//handle incoming messages
+	client.on('message',function(topic, message, packet){
+		console.log("message is "+ message);
+		console.log("topic is "+ topic);
+	});
 
-Connect();
 
-/*Initiates a connection to the MQTT broker*/
-function Connect(){
-	mqttClient.connect({
-	onSuccess: Connected,
-	onFailure: ConnectionFailed,
-	keepAliveInterval: 10,
-	userName: username,
-	useSSL: true,
-	password: password});
+	client.on("connect",function(){	
+	console.log("connected  "+ client.connected);
+
+	})
+	//handle errors
+	client.on("error",function(error){
+	console.log("Can't connect" + error);
+	process.exit(1)});
 }
+	//publish
+	
+function publish(topic,msg,options){
+	console.log("publishing",msg);
 
-/*Callback for successful MQTT connection */
-function Connected() {
-	document.getElementById("con_status").innerHTML = "Connected" ;
-	mqttClient.subscribe(topic);
-	document.getElementById("sub_status").innerHTML = "Subscribe" ;
-}
+	if (client.connected == true){
+		
+	client.publish(topic,msg,options);
 
-/*Callback for failed connection*/
-function ConnectionFailed(res) {
-	document.getElementById("con_status").innerHTML = "Connect failed: " + res.errorMessage;
-}
-
-/*Callback for lost connection*/
-function ConnectionLost(res) {
-	if (res.errorCode !== 0) {
-		document.getElementById("con_status").innerHTML = "Connection lost: " + res.errorMessage;
-		Connect();
 	}
+	count+=1;
+	if (count==2) //ens script
+		clearTimeout(timer_id); //stop timer
+		client.end();	
 }
+
 
