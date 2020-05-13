@@ -22,6 +22,7 @@ function prova(){
 	var reconnectTimeout = 2000;
 	//var host ="127.0.0.1"
 	var host ="192.168.1.139"
+	var host ="tequila"
 	var topic="v1/devices/me/telemetry";
 	alert("connection to "+host);
 	
