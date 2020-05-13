@@ -20,7 +20,8 @@ function onConnectionLost(responseObject) {
 function prova(){
 	var mqtt;
 	var reconnectTimeout = 2000;
-	var host ="127.0.0.1"
+	//var host ="127.0.0.1"
+	var host ="192.168.1.139"
 	var topic="v1/devices/me/telemetry";
 	alert("connection to "+host);
 	
