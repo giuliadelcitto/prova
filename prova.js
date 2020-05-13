@@ -32,6 +32,7 @@ function prova(){
 		alert("connecting to " + host);
 		var options = {
 			timeout: 3,
+			useSSL: true,
 			onSuccess: onConnect,
 			onFailure: onFailure,
 		};
