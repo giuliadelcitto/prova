@@ -21,6 +21,7 @@
 		var prec=0;
 		var act=0;
 		var l=[];
+		var i=0;
 		let sensor = new Accelerometer({frequency: 1});
 		sensor.start();
 		sensor.onreading = () => {
@@ -32,7 +33,8 @@
 			document.getElementById('status_val').innerHTML = "Actual: " + act +" previous:	" + prec;
 			var d = Math.abs(act - prec).toFixed(2)
 			if ( d > 5){
-				document.getElementById('status_act').innerHTML = "Activity: Walking  d:  " + d ;
+				i = i+1;
+				document.getElementById('status_act').innerHTML = "Activity: Walking  i:  " + i;
 			}else{
 				document.getElementById('status_act').innerHTML = "Activity: stunning  d:  " + d ;
 			}
