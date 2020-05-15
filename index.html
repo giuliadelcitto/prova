@@ -31,10 +31,10 @@
 			act=Math.sqrt(l[0]^2 + l[1]^2 + l[2]^2 ).toFixed(2);
 			document.getElementById('status_val').innerHTML = "Actual: " + act +" previous:	" + prec;
 			var d = Math.abs(act - prec).toFixed(2)
-			if ( d > 6){
-				document.getElementById('status_act').innerHTML = "Activity: Walking --   " + d ;
+			if ( d > 5){
+				document.getElementById('status_act').innerHTML = "Activity: Walking  d:  " + d ;
 			}else{
-				document.getElementById('status_act').innerHTML = "Activity: stunning --   " + d ;
+				document.getElementById('status_act').innerHTML = "Activity: stunning  d:  " + d ;
 			}
 			prec = act;
 		};
