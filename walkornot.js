@@ -4,6 +4,7 @@ function getdata(){
 	var l=[];
 	var i=0;
 	var d =0;
+	var r=0;
 	let sensor = new Accelerometer({frequency: 1});
 	sensor.start();
 	sensor.onreading = () => {
@@ -16,9 +17,12 @@ function getdata(){
 		d = Math.abs(act - prec).toFixed(2);
 		if ( d > 5){
 			i = i+1;
-			document.getElementById('status_act').innerHTML = "Activity: WALKING i:  " + i;
+			document.getElementById('status_act').innerHTML = "Activity: WALKING w:  " + i + " r: " + r ;
+		}else if (d > 9){
+			r=r+1;
+			document.getElementById('status_act').innerHTML = "Activity: RUNNING w:  " + i  + " r: " + r ;
 		}else{
-			document.getElementById('status_act').innerHTML = "Activity: STANDING  i:  " + i ;
+			document.getElementById('status_act').innerHTML = "Activity: STANDING w:  " + i  + " r: " + r ;
 		}
 		prec = act;
 	};
