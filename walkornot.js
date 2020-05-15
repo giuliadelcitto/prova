@@ -5,7 +5,7 @@ function getdata(){
 	var i=0;
 	var d =0;
 	var r=0;
-	let sensor = new Accelerometer({frequency: 0.5});
+	let sensor = new Accelerometer({frequency: 5});
 	sensor.start();
 	sensor.onreading = () => {
 		l[0]= sensor.x.toFixed(2) ;
