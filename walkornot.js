@@ -15,12 +15,12 @@ function getdata(){
 		act=Math.sqrt(l[0]^2 + l[1]^2 + l[2]^2 ).toFixed(2);
 		
 		d = Math.abs(act - prec).toFixed(2);
-		if ( d > 5){
+		if ( d > 9){
 			i = i+1;
-			document.getElementById('status_act').innerHTML = "Activity: WALKING w:  " + i + " r: " + r ;
-		}else if (d > 9){
-			r=r+1;
 			document.getElementById('status_act').innerHTML = "Activity: RUNNING w:  " + i  + " r: " + r ;
+		}else if (d > 5){
+			r=r+1;
+			document.getElementById('status_act').innerHTML = "Activity: WALKING w:  " + i + " r: " + r ;
 		}else{
 			document.getElementById('status_act').innerHTML = "Activity: STANDING w:  " + i  + " r: " + r ;
 		}
