@@ -22,7 +22,7 @@ function getdata(){
 		if ( d > 10){
 			activity="running";
 			document.getElementById('status_act').innerHTML = activity;
-		}else if (d > 5){
+		}else if (d > 6){
 			activity="walking";
 			document.getElementById('status_act').innerHTML = activity;
 		}else{
