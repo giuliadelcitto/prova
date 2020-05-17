@@ -17,11 +17,12 @@ function getdata(){
 			send_data(l[0], l[1], l[2]);
 		}
 		
-		d=Math.sqrt(l[0]*l[0] + l[1]*l[1] + l[2]*l[2] ).toFixed(2);
-		if ( d > 10){
+		act=Math.sqrt(l[0]*l[0] + l[1]*l[1] + l[2]*l[2] ).toFixed(2);
+		d = Math.abs(act - prec).toFixed(2);
+		if ( d > 2){
 			activity="running";
 			document.getElementById('status_act').innerHTML = activity;
-		}else if (d > 6){
+		}else if (d > 0.6){
 			activity="walking";
 			document.getElementById('status_act').innerHTML = activity;
 		}else{
