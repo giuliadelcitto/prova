@@ -1,12 +1,12 @@
 function onConnect(){
 	alert("connected");
-	msg=new Paho.MQTT.Message("prova");
-	msg.destinationName = "v1/devices/me/telemetry";
-	mqtt.send(msg);
+	//msg=new Paho.MQTT.Message("prova");
+	//msg.destinationName = "v1/devices/me/telemetry";
+	//mqtt.send(msg);
 }
 
 function onFailure(e){
-	alert("cnnection to host fail " + e.errorMessage);
+	alert("connection to host fail " + e.errorMessage);
 	//setTimeout(prova, 2000);
 }
 
@@ -20,25 +20,26 @@ function onConnectionLost(responseObject) {
 function prova(){
 	var mqtt;
 	var reconnectTimeout = 2000;
+	var connected = false;
 	var host ="192.168.1.139";
-	var host ="tequila";
+	//var host ="tequila";
+	//var host = "127.0.0.1"
 	var client = "N2AxGgvu8vkscRonykTT";
 	var topic="v1/devices/me/telemetry";
 	alert("connection to "+host);
 	
 	try{
-		mqtt = new Paho.MQTT.Client(host, 9001 , client);
+		mqtt = new Paho.MQTT.Client(host, Number(9000), "/ws", "client");
 		mqtt.onConnectionLost = onConnectionLost;
 	
 		alert("connecting to " + host);
 		var options = {
-			timeout: 3,
-			useSSL: true,
+			timeout: 10,
 			onSuccess: onConnect,
 			onFailure: onFailure,
 		};
-	
-	mqtt.connect(options);
+		
+		mqtt.connect(options);
 	}
 	catch(e){
 		alert("catch Error" + e.name);
