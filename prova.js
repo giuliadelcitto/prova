@@ -29,7 +29,7 @@ function prova(){
 	alert("connection to "+host);
 	
 	try{
-		mqtt = new Paho.MQTT.Client(host, Number(9000), "/ws", "client");
+		mqtt = new Paho.MQTT.Client(host, Number(9000), "/wss", "client");
 		mqtt.onConnectionLost = onConnectionLost;
 	
 		alert("connecting to " + host);
