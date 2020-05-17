@@ -1,4 +1,4 @@
-let sensor = new Accelerometer({frequency: 1});
+let sensor = new  LinearAccelerationSensor({frequency: 1});
 
 function getdata(){
 	var prec=0;
@@ -17,12 +17,11 @@ function getdata(){
 			send_data(l[0], l[1], l[2]);
 		}
 		
-		act=Math.sqrt(l[0]*l[0] + l[1]*l[1] + l[2]*l[2] ).toFixed(2);
-		d = Math.abs(act - prec).toFixed(2);
-		if ( d > 10){
+		d=Math.sqrt(l[0]*l[0] + l[1]*l[1] + l[2]*l[2] ).toFixed(2);
+		if ( d > 1.5){
 			activity="running";
 			document.getElementById('status_act').innerHTML = activity;
-		}else if (d > 6){
+		}else if (d > 0.6){
 			activity="walking";
 			document.getElementById('status_act').innerHTML = activity;
 		}else{
