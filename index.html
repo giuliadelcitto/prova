@@ -14,19 +14,14 @@
 		parser.href = url;
 		alert(parser.href)
 		var query = parser.href.split('?');
-		alert(query[1])
-		var v = query[1].split('=')
-		alert(v)
+		var v = query[1].split('&')
 		alert(v[1])
-		/*
-		var vars = query.split('&');
-		alert(vars)
-		for (var i = 0; i < vars.length; i++) {
+		for (var i = 0; i < v.length; i++) {
 			var pair = vars[i].split('=');
-			params[pair[0]] = decodeURIComponent(pair[1]);
+			params[pair[0]] = pair[1] ;
 		}
-		alert(params)*/
-		return parser.href;
+		alert(params)
+		return params;
 		};
 	</script>
 </head>
