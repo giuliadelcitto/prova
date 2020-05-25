@@ -10,7 +10,7 @@ id_lev=["l1", "l2", "l3", "l4"]
 player=["p1" , "p2", "p3", "p4"]
 
 s = "https://giuliadelcitto.github.io/prova/?type="+ t[0] +"&id="+ id_lev[2] + "&id_p=" + player[1]
-  
+print(s)
 # Generate QR code 
 url = pyqrcode.create(s) 
   

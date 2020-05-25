@@ -17,7 +17,7 @@
 		var v = query[1].split('&')
 		alert(v[1])
 		for (var i = 0; i < v.length; i++) {
-			var pair = vars[i].split('=');
+			var pair = v[i].split('=');
 			params[pair[0]] = pair[1] ;
 		}
 		alert(params)
