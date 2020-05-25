@@ -15,10 +15,11 @@
 		alert(parser.href)
 		var query = parser.href.split('?');
 		var v = query[1].split('&')
-		alert(v[1])
+		alert(v)
 		for (var i = 0; i < v.length; i++) {
 			var pair = v[i].split('=');
-			params[pair[0]] = pair[1] ;
+			params[i] = pair[1] ;
+			
 		}
 		alert(params)
 		return params;
