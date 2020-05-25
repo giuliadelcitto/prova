@@ -18,11 +18,11 @@
 		alert(v)
 		for (var i = 0; i < v.length; i++) {
 			var pair = v[i].split('=');
-			params[i] = pair[1] ;
-			alert(params[i])
+			params[pair[0]] = pair[1] ;
+			alert(params[pair[0]])
 			
 		}
-		alert(params)
+		consol.log(params)
 		return params;
 		};
 	</script>
