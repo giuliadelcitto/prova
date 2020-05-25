@@ -9,7 +9,24 @@
 	<meta charset="utf-8">
 	<meta name="description" content="The HTML5 Herald">
 	<meta name="author" content="SitePoint">
-
+	<script>
+		var getParams = function (url) {
+		var params = {};
+		var parser = document.getElementById('status');
+		parser.href = url;
+		alert(parser)
+		var query = parser.search.substring(1);
+		alert(query)
+		var vars = query.split('&');
+		alert(vars)
+		for (var i = 0; i < vars.length; i++) {
+			var pair = vars[i].split('=');
+			params[pair[0]] = decodeURIComponent(pair[1]);
+		}
+		alert(params)
+		return params;
+		};
+	</script>
 </head>
 
 <body style="background: #CCE6FF">
@@ -19,7 +36,7 @@
 	<div id='status' style="position:absolute; top:18%; left:8%; font-family: Courier; font-weight:bold; font-style:italic; color:#2E6484; font-size:20px;"> No data from sensor </div>
 	<div style="position:absolute; top:22%; left:8%; font-family: Courier; font-weight:bold; font-style:italic; color:#2E6484; font-size:20px;"> Activity: </div>
 	<div id='status_act' style="position:absolute; top:25%; left:8%; font-family: Courier; font-weight:bold; font-style:italic; color:#2E6484; font-size:20px;"> No activity detect </div>
-	<button style="position:absolute; top:30%; left:8%" class="Button" onclick="getdata()"> Start get data </button>
+	<button style="position:absolute; top:30%; left:8%" class="Button" onclick="getParams(window.location.href)"> Start get data </button>
 	<button style="position:absolute; top:30%; left:35%" class="Button" onclick="stop()"> Stop get data </button>
 	
 	
