@@ -12,8 +12,8 @@
 		var params = {};
 		var parser = document.getElementById('status');
 		parser.href = url;
-		alert(parser)
-		var query = parser.search.substring(1);
+		alert(parser.href)
+		/*var query = parser.search.substring(1);
 		alert(query)
 		var vars = query.split('&');
 		alert(vars)
@@ -21,8 +21,8 @@
 			var pair = vars[i].split('=');
 			params[pair[0]] = decodeURIComponent(pair[1]);
 		}
-		alert(params)
-		return params;
+		alert(params)*/
+		return parser.href;
 		};
 	</script>
 </head>
