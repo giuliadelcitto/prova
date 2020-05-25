@@ -14,7 +14,10 @@
 		parser.href = url;
 		alert(parser.href)
 		var query = parser.href.split('?');
-		alert(query)
+		alert(query[1])
+		var v = query[1].split('=')
+		alert(v)
+		alert(v[1])
 		/*
 		var vars = query.split('&');
 		alert(vars)
